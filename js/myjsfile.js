@@ -1,5 +1,10 @@
-exports.playSimon = function(stuff1, stuff2) // pass in the color sequence
+var moment = require("moment");
+
+exports.currentTime = function() // display current time
 {
-  // comments go here
+  var currentTime = $('.container');
+
+  currentTime.find("p").html("Time:" + moment().format('h:mm:ss a'));
+
 
 };
