@@ -15,16 +15,22 @@
     <div class="container">
       <h1>Wake your a** up today!</h1>
       <p>
-
+        <!--time goes in here via js-->
       </p>
       <form class="form-group" id="alarm-set">
-      <label for="alarm">Wake up time:</label>
-      <input type="time" name="alarm" value="">
-      <button type="submit" id="submit-click" name="button">Set Alarm</button>
+        <label for="alarm">Wake up time:</label>
+        <input type="time" name="alarm" value="">
+        <button type="submit" name="button">Set Alarm</button>
       </form>
-
     </div>
 
+    <!--hidden on page load-->
+    <div class="alarm-text">
+      <form class="form-group" id="turn-off">
+        <h1>Yo wake up!</h1>
+        <button class="btn btn-danger" type="submit" name="button">Turn Off Alarm</button>
+      </form>
+    </div>
 
   </body>
 </html>

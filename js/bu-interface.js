@@ -3,24 +3,26 @@ var currentTime = require('./../js/myjsfile.js').currentTime;
 var compareTime = require('./../js/myjsfile.js').compareTime;
 
 $(document).ready(function(event) {
+  $(".alarm-text").hide();
   var alarmTime = null;
-
-  currentTime();
-  setInterval(currentTime, 1000);
-  console.log('current ' + moment().format('HH:mm a'));
-
-  $('#alarm-set').submit(function(event){
+  $('#alarm-set').submit(function(event){  //set alarm time..
     event.preventDefault();
     alarmTime = $("[name=alarm]").val();
-    console.log(alarmTime);
-    console.log(moment().format("HH:mm"))
 
+    setInterval(function(){//checks moment time against alarm time every 1s
+      if (moment().format("HH:mm") === alarmTime) {
+        $('.alarm-text').show();
+      }
+    }, 1000);
   });
 
-  setInterval(function(){
-    if (moment().format("HH:mm") === alarmTime) {
-      alert("Get Up!");
-    }
-  }, 1000);
+  currentTime();
+  setInterval(currentTime, 1000);//refresh window with current time every s.
+
+  $('#turn-off').submit(function(event){
+    event.preventDefault();
+    $(".alarm-text").hide();
+    alarmTime = null; 
+  });
 
 });
